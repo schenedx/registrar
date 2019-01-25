@@ -6,7 +6,31 @@ Registrar service  |Travis|_ |Codecov|_
 .. |Codecov| image:: http://codecov.io/github/edx/registrar/coverage.svg?branch=master
 .. _Codecov: http://codecov.io/github/edx/registrar?branch=master
 
-The ``README.rst`` file should start with a brief description of the repository, which sets it in the context of other repositories under the ``edx`` organization. It should make clear where this fits in to the overall edX codebase. You may also want to provide a brief overview of the code in this repository, including the main components and useful entry points for starting to understand the code in more detail, or link to a comparable description in your repo's docs.
+This is the prototype to explore the concept of linking an edX learner user with an edX program stored in course discovery.
+The prototype should prove the concepts below:
+
+#. Make API call from this repo to LMS and Discovery through DOT JWT
+   
+   #. Have viable linkage table between LMS learner and here
+   
+   #. Have viable linkage table between Discovery Programs and here
+
+#. Integrate with SSO module on LMS to facilitate LMS account creation
+
+#. Explore a generic pending learner/enrollment concept
+
+#. Provide API to external parties to retrieve the following:
+  
+   #. Given a program, which learners are enrolled in it
+
+   #. Given a learner, which program, if any, is the learner enrolled in
+
+   #. Given a learner, return the list of course the learner is enrolled in within the enrolled program
+
+   #. An RESTful API endpoint for uploading enrollment information for a program (Pending Enrollments required)
+
+   #. Can this act as a proxy to pull learner grades and completion data
+
 
 Documentation
 -------------
