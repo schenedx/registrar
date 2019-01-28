@@ -31,13 +31,16 @@ The prototype should prove the concepts below:
 
    #. Can this act as a proxy to pull learner grades and completion data
 
+Using with Docker Devstack
+--------------------------
 
-Documentation
--------------
-.. |ReadtheDocs| image:: https://readthedocs.org/projects/registrar/badge/?version=latest
-.. _ReadtheDocs: http://registrar.readthedocs.io/en/latest/
+This can be run locally with docker.  It uses the ``devstack_default`` network.  To bring up the application container, memcache container, and DB container, do::
 
-`Documentation <https://registrar.readthedocs.io/en/latest/>`_ is hosted on Read the Docs. The source is hosted in this repo's `docs <https://github.com/edx/registrar/tree/master/docs>`_ directory. To contribute, please open a PR against this repo.
+  make up
+
+To bring these containers down::
+
+  make down
 
 License
 -------
@@ -45,18 +48,3 @@ License
 The code in this repository is licensed under version 3 of the AGPL unless otherwise noted. Please see the LICENSE_ file for details.
 
 .. _LICENSE: https://github.com/edx/registrar/blob/master/LICENSE
-
-How To Contribute
------------------
-
-Contributions are welcome. Please read `How To Contribute <https://github.com/edx/edx-platform/blob/master/CONTRIBUTING.rst>`_ for details. Even though it was written with ``edx-platform`` in mind, these guidelines should be followed for Open edX code in general.
-
-Reporting Security Issues
--------------------------
-
-Please do not report security issues in public. Please email security@edx.org.
-
-Get Help
---------
-
-Ask questions and discuss this project on `Slack <https://openedx.slack.com/messages/general/>`_ or in the `edx-code Google Group <https://groups.google.com/forum/#!forum/edx-code>`_.
