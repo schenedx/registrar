@@ -80,7 +80,9 @@ private.py
 
 # Editor Temp Files
 *.swp
+*~
 
 *.trace
 
 docs/_build/
+

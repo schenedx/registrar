@@ -78,9 +78,6 @@ pull_translations:
 push_translations:
 	tx push -s
 
-start-devstack:
-	docker-compose --x-networking up
-
 open-devstack:
 	docker exec -it registrar /edx/app/registrar/devstack.sh open
 
@@ -91,3 +88,9 @@ detect_changed_source_translations:
 	cd registrar && i18n_tool changed
 
 validate_translations: fake_translations detect_changed_source_translations
+
+up:
+	docker-compose up -d
+
+down:
+	docker-compose down
