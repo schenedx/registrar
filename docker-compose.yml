@@ -22,8 +22,8 @@ services:
       dockerfile: Dockerfile
     container_name: registrar-app
     volumes:
-      - .:/edx/app/registrar/registrar
-    command: bash -c 'while true; do python /edx/app/registrar/registrar/manage.py runserver 0.0.0.0:16616; sleep 2; done'
+      - .:/edx/app/registrar
+    command: bash -c 'while true; do python /edx/app/registrar/manage.py runserver 0.0.0.0:16616; sleep 2; done'
     ports:
       - "16616:16616"
     networks:

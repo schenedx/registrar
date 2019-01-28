@@ -78,9 +78,6 @@ pull_translations:
 push_translations:
 	tx push -s
 
-open-devstack:
-	docker exec -it registrar /edx/app/registrar/devstack.sh open
-
 pkg-devstack:
 	docker build -t registrar:latest -f docker/build/registrar/Dockerfile git://github.com/edx/configuration
 
@@ -94,3 +91,9 @@ up:
 
 down:
 	docker-compose down
+
+shell:
+	docker exec -it registrar-app /bin/bash
+
+logs:
+	docker logs -f registrar-app
