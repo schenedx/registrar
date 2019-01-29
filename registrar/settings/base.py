@@ -171,6 +171,16 @@ SOCIAL_AUTH_EDX_OIDC_URL_ROOT = 'replace-me'
 SOCIAL_AUTH_EDX_OIDC_LOGOUT_URL = 'replace-me'
 SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = SOCIAL_AUTH_EDX_OIDC_SECRET
 
+
+JWT_AUTH = {
+    'JWT_ISSUERS': [],
+    'JWT_ALGORITHM': 'HS256',
+    'JWT_VERIFY_EXPIRATION': True,
+    'JWT_PAYLOAD_GET_USERNAME_HANDLER': lambda d: d.get('preferred_username'),
+    'JWT_LEEWAY': 1,
+    'JWT_DECODE_HANDLER': 'edx_rest_framework_extensions.auth.jwt.decoder.jwt_decode_handler',
+}
+
 # Request the user's permissions in the ID token
 EXTRA_SCOPE = ['permissions']
 

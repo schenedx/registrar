@@ -47,17 +47,27 @@ INTERNAL_IPS = ('127.0.0.1',)
 # END TOOLBAR CONFIGURATION
 
 # AUTHENTICATION
+OAUTH2_PROVIDER_URL = 'http://edx.devstack.lms:18000/oauth2'
+
 # Use a non-SSL URL for authorization redirects
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = False
 
 # Set these to the correct values for your OAuth2/OpenID Connect provider (e.g., devstack)
-SOCIAL_AUTH_EDX_OIDC_KEY = 'replace-me'
-SOCIAL_AUTH_EDX_OIDC_SECRET = 'replace-me'
-SOCIAL_AUTH_EDX_OIDC_URL_ROOT = 'replace-me'
-SOCIAL_AUTH_EDX_OIDC_LOGOUT_URL = 'replace-me'
+SOCIAL_AUTH_EDX_OIDC_KEY = 'registrar-key'
+SOCIAL_AUTH_EDX_OIDC_SECRET = 'registrar-secret'
+SOCIAL_AUTH_EDX_OIDC_URL_ROOT = 'http://edx.devstack.edxapp:18000/oauth2'
+SOCIAL_AUTH_EDX_OIDC_PUBLIC_URL_ROOT = 'http://localhost:18000/oauth2'
+SOCIAL_AUTH_EDX_OIDC_LOGOUT_URL = 'http://localhost:18000/logout'
+SOCIAL_AUTH_EDX_OIDC_ISSUER = 'http://edx.devstack.lms:18000/oauth2'
 SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = SOCIAL_AUTH_EDX_OIDC_SECRET
 
 ENABLE_AUTO_AUTH = True
+
+JWT_AUTH['JWT_ISSUERS'].append({
+    'AUDIENCE': 'lms-key',
+    'ISSUER': 'http://edx.devstack.lms:18000/oauth2',
+    'SECRET_KEY': 'lms-secret',
+})
 
 #####################################################################
 # Lastly, see if the developer has any local overrides.
