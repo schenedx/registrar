@@ -97,3 +97,6 @@ shell:
 
 logs:
 	docker logs -f registrar-app
+
+restart: ## Kill the Django development server. The watcher process will restart it.
+	docker exec -t registrar-app bash -c 'kill $$(ps aux | grep "manage.py runserver" | egrep -v "while|grep" | awk "{print \$$2}")'
