@@ -15,12 +15,12 @@ CACHES = {
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': root('default.db'),
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'registrar',
+        'USER': 'registrar001',
+        'PASSWORD': 'password',
+        'HOST': 'registrar-db',
+        'PORT': '3306',
     }
 }
 # END DATABASE CONFIGURATION

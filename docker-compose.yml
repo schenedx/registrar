@@ -8,6 +8,8 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     networks:
       - devstack_default
+    volumes:
+      - mysql_data:/var/lib/mysql
 
   registrar-memcache:
     image: memcached:1.4.24
@@ -37,3 +39,6 @@ services:
 networks:
   devstack_default:
     external: true
+
+volumes:
+  mysql_data:

@@ -86,6 +86,9 @@ detect_changed_source_translations:
 
 validate_translations: fake_translations detect_changed_source_translations
 
+build:
+	docker-compose build
+
 up:
 	docker-compose up -d
 
@@ -95,8 +98,14 @@ down:
 shell:
 	docker exec -it registrar-app /bin/bash
 
+db_shell:
+	docker exec -it registrar-db mysql -uroot registrar
+
 logs:
 	docker logs -f registrar-app
 
 restart: ## Kill the Django development server. The watcher process will restart it.
 	docker exec -t registrar-app bash -c 'kill $$(ps aux | grep "manage.py runserver" | egrep -v "while|grep" | awk "{print \$$2}")'
+
+provision_db:
+	docker exec -i registrar-db mysql -uroot mysql < provision.sql

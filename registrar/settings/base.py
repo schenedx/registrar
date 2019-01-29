@@ -23,12 +23,13 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
 )
 
 THIRD_PARTY_APPS = (
     'rest_framework',
     'rest_framework_swagger',
+    'simple_history',
     'social_django',
     'waffle',
 )
@@ -36,6 +37,7 @@ THIRD_PARTY_APPS = (
 PROJECT_APPS = (
     'registrar.apps.core',
     'registrar.apps.api',
+    'registrar.apps.enrollments',
 )
 
 INSTALLED_APPS += THIRD_PARTY_APPS
@@ -50,6 +52,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'simple_history.middleware.HistoryRequestMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
     'waffle.middleware.WaffleMiddleware',
 )
