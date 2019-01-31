@@ -59,6 +59,9 @@ SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = SOCIAL_AUTH_EDX_OIDC_SECRET
 
 ENABLE_AUTO_AUTH = True
 
+LMS_BASE_URL = 'http://edx.devstack.lms:18000'
+DISCOVERY_BASE_URL = 'http://edx.devstack.discovery:18381'
+
 #####################################################################
 # Lastly, see if the developer has any local overrides.
 if os.path.isfile(join(dirname(abspath(__file__)), 'private.py')):

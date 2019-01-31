@@ -35,6 +35,8 @@ services:
       - registrar-db
     stdin_open: true
     tty: true
+    env_file:
+      - registrar-app.env
 
 networks:
   devstack_default:

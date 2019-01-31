@@ -86,3 +86,5 @@ private.py
 
 docs/_build/
 
+# Docker env files
+registrar-app.env
