@@ -19,7 +19,7 @@ def get_learner_by_email(email):
         return None
 
 
-def create_or_update_learner(email, **kwargs):
+def update_or_create_learner(email, **kwargs):
     """
     Given an email and optional other ids, creates or updates
     a learner record.  Returns a tuple of (learner, was_created).
@@ -39,6 +39,15 @@ def get_program_by_uuid(discovery_uuid):
         return Program.objects.get(discovery_uuid=discovery_uuid)
     except Program.DoesNotExist:
         return None
+
+
+def update_or_create_program(discovery_uuid, **kwargs):
+    """
+    Given a program UUID (as specified in the discovery service),
+    updates or creates a program with that UUID
+    with the provided kwargs.
+    """
+    Program.objects.update_or_create(discovery_uuid=discovery_uuid, defaults=kwargs)
 
 
 def enroll_in_program(learner, program, **kwargs):
